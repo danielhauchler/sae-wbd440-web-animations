@@ -7,7 +7,6 @@
   <title>Document</title>
   <style>
     #box {
-      opacity: 0;
       width: 250px;
       height: 250px;
       background-color: aqua;
@@ -21,16 +20,31 @@
     
     var box = document.querySelector('#box');
 
+    // timeline loop based on repeat
+    // var tl = new gsap.timeline({repeat: -1});
+    
     var tl = new gsap.timeline();
     
-    tl.to(box, 2, {opacity: 1, x: 500})
+    tl.to(box, 2, {x: 500})
       .to(box, 2, {rotate: 360}, '-=2')
-      .to(box, 2, {backgroundColor: '#000'}, 1)
+      .to(box, 2, {backgroundColor: '#000', onComplete: restart}, 1)
 
-    console.log('Timeline Duration: ' + tl.duration())
-    
-    // Länge der Zeitleiste
-    // tl.duration()
+      function done() {
+        tl.play(0)
+      }
+
+      let i = 1;
+
+      function restart() {
+          
+          if(i < 3) {
+              tl.to(box, 2, {x: 0, rotation: 0, onComplete: done})
+              i++
+              console.log(i)
+          } else(
+              tl.pause()
+          )
+      }
 
   </script>
 </body>

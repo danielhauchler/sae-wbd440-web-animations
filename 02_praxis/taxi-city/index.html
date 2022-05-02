@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi City</title>
+  <style>
+    #slider {
+      position: relative;
+      width: 1027px;
+      height: 375px;
+      margin: 100px auto;
+    }
+    #panel1 {
+      position: relative;
+    }
+    #panel1 #bg {
+      width: 1027px;
+      height: 375px;
+      background-image: url(assets/panel1_city.jpg);
+      background-size: 100%;
+    }
+
+    #panel1 #taxi-1 {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-image: url(assets/panel1_taxi.png);
+      background-size: 100%;
+    }
+
+    #panel1 #taxi-2 {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-image: url(assets/panel1_taxi.png);
+      background-size: 100%;
+    }
+
+    #panel1 #taxi-3 {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-image: url(assets/panel1_taxi_black.png);
+      background-size: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="slider">
+    <div id="panel1">
+      <div id="bg"></div>
+      <div id="taxi-1"></div>
+      <div id="taxi-2"></div>
+      <div id="taxi-3"></div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script type="text/javascript" src="http://sharedlibraries.danielhauchler.de/anim_panel_v2.js"></script>
+
+  <script>
+
+    const taxi1 = document.querySelector('#taxi-1');
+    const taxi2 = document.querySelector('#taxi-2');
+    const taxi3 = document.querySelector('#taxi-3');
+    
+    const tl = new gsap.timeline();
+
+    tl.to(taxi1, 3, {
+      x: 10,
+      y: 10,
+    })
+
+    new AnimPanel(tl)
+  
+  </script>
+</body>
+</html>

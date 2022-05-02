@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEPOT</title>
+  <style>
+    #robot-holder {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      transform-origin: 50% 50%;
+      transform: translate(10px, 10px) rotate(0);
+    }
+    .brush {
+      z-index: 2;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('robot-brush.png');
+      background-size: 100%;
+    }
+
+    #brush-left {
+      top: 15px;
+      left: 20px;
+    }
+
+    #brush-right {
+      top: 15px;
+      left: 80px;
+    }
+
+    #robot {
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 150px;
+      background-image: url('robot.png');
+      background-size: 100%;
+    }
+
+    #robot-shadow {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 150px;
+      background-image: url('robot-shadow.png');
+      background-size: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="robot-holder">
+    <div id="robot-wrap">
+      <div id="brush-left" class="brush"></div>
+      <div id="brush-right" class="brush"></div>
+      <div id="robot"></div>
+    </div>
+    <div id="robot-shadow"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+  <script>
+    
+    var robotHolder = document.querySelector('#robot-holder');
+    var brushLeft = document.querySelector('#brush-left');
+    var brushRight = document.querySelector('#brush-right');
+    var robotShadow = document.querySelector('#robot-shadow');
+
+    var tlBrushes = new gsap.timeline({repeat: -1});
+    var tlRobot = new gsap.timeline();
+
+    tlBrushes.pause()
+
+    tlBrushes
+    .to(brushLeft, .6, {
+      rotate: 360,
+      ease: Power0.easeNone
+    })
+    .to(brushRight, .6, {
+      rotate: -360,
+      ease: Power0.easeNone
+    }, '-=.6')
+
+    tlRobot.to(robotHolder, 2, {
+      rotate: 90,
+    })
+    .to(robotShadow, 2, {
+      rotate: -90,
+      onComplete: function() {
+        tlBrushes.play(0)
+      }
+    }, '-=2')
+    .to(robotHolder, 8, {
+      x: 500,
+      ease: Power1.easeInOut
+    })
+    .to(robotHolder, 2, {
+      rotate: 180
+    })
+    .to(robotShadow, 2, {
+      rotate: -180
+    }, '-=2')
+    .to(robotHolder, 4, {
+      y: 50
+    })
+    .to(robotHolder, 2, {
+      rotate: 270
+    })
+    .to(robotShadow, 2, {
+      rotate: -270
+    }, '-=2')
+    .to(robotHolder, 8, {
+      x: 0
+    })
+
+
+
+  </script>
+</body>
+</html>

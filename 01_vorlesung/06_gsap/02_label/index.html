@@ -23,14 +23,11 @@
 
     var tl = new gsap.timeline();
     
-    tl.to(box, 2, {opacity: 1, x: 500})
-      .to(box, 2, {rotate: 360}, '-=2')
-      .to(box, 2, {backgroundColor: '#000'}, 1)
-
-    console.log('Timeline Duration: ' + tl.duration())
-    
-    // Länge der Zeitleiste
-    // tl.duration()
+    tl.add('start')
+      .to(box, 2, {opacity: 1, x: 500}, 'start')
+      .to(box, 2, {rotate: 360}, 'start')
+      // .to(box, 2, {rotate: 360}, 'start+=2')
+      .add('end')
 
   </script>
 </body>
