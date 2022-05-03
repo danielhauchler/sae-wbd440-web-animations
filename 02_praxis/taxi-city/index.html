@@ -44,7 +44,7 @@
       height: 40px;
       background-image: url(assets/panel1_taxi.png);
       background-size: 100%;
-      transform: translate(0, 0) rotate(0);
+      transform: translate(426px, -50px) rotate(0);
     }
 
     #panel1 #taxi-3 {
@@ -56,7 +56,20 @@
       height: 40px;
       background-image: url(assets/panel1_taxi_black.png);
       background-size: 100%;
-      transform: translate(0, 0) rotate(0);
+      transform: translate(140px, -43px) rotate(0);
+      transform-origin: 38px 0px;
+    }
+
+    #panel1 #taxi-4 {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      background-image: url(assets/panel1_taxi_black.png);
+      background-size: 100%;
+      transform: translate(456px, 314px) rotate(-90deg);
     }
 
   </style>
@@ -68,6 +81,7 @@
       <div id="taxi-1"></div>
       <div id="taxi-2"></div>
       <div id="taxi-3"></div>
+      <div id="taxi-4"></div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -78,19 +92,27 @@
     const taxi1 = document.querySelector('#taxi-1');
     const taxi2 = document.querySelector('#taxi-2');
     const taxi3 = document.querySelector('#taxi-3');
+    const taxi4 = document.querySelector('#taxi-4');
     
     const tl = new gsap.timeline();
 
-    tl.from(taxi1, 5, {
-      x: 83,
-      y: 406,
-      ease: Power1.easeOut
-    })
-    .to(taxi1, 3, {
-      x: 544,
-      y: -60,
-      ease: Power1.easeIn
-    }, '+=2')
+    tl.add('taxi-start')
+      .from(taxi1, 5, {x: 83,y: 406,ease: Power1.easeOut},'taxi-start')
+      // taxi 1
+      .to(taxi1, 3, {x: 544,y: -60,ease: Power1.easeIn}, 'taxi-start+=7')
+      // taxi 2
+      .to(taxi2, 6, {x: 854, y: 382, ease: Power0.easeNone}, 'taxi-start+=3')
+      // taxi 3
+      .to(taxi3, 3, {x: 228, y: 45, ease: Power1.easeIn}, 'taxi-start')
+      .to(taxi3, 3, {x: 389, y: 205, ease: Power0.easeNone}, 'taxi-start+=3')
+      .to(taxi3, 3, {x: 448, y: 264, ease: Power1.easeOut}, 'taxi-start+=6')
+      .to(taxi3, 3, {x: 460, y: 277, ease: Power1.easeIn}, 'taxi-start+=9')
+      .to(taxi3, 2, {rotate: -90, ease: Power1.easeIn}, 'taxi-start+=12')
+      .to(taxi3, 6, {x: 782, y: -45, ease: Power0.easeNone}, 'taxi-start+=14')
+      // taxi 4
+      .from(taxi4, 3, {x: 397, y: 381, ease: Power1.easeOut}, 'taxi-start+=10')
+      .to(taxi4, 2, {x: 496, y: 276, ease: Power1.easeIn}, 'taxi-start+=13')
+      .to(taxi4, 6, {x: 819, y: -45, ease: Power0.easeNone}, 'taxi-start+=15')
 
     new AnimPanel(tl)
   
