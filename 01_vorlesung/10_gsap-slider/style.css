@@ -6,19 +6,102 @@
   font-family: 'Roboto Slab', serif;
 }
 
-#slider-item-1 {
+#slide-1 {
   opacity: 0;
 }
 
-#slider-item-2 {
+#slide-1 #slide-1-bg {
+  width: 1027px;
+  height: 375px;
+  background-image: url(images/panel1_city.jpg);
+  background-size: 100%;
+}
+
+#slide-1 #taxi-1 {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(images/panel1_taxi.png);
+  background-size: 100%;
+  transform: translate(313px, 169px) rotate(-90deg);
+}
+
+#slide-1 #taxi-2 {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(images/panel1_taxi.png);
+  background-size: 100%;
+  transform: translate(426px, -50px) rotate(0);
+}
+
+#slide-1 #taxi-3 {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(images/panel1_taxi_black.png);
+  background-size: 100%;
+  transform: translate(140px, -43px) rotate(0);
+  transform-origin: 38px 0px;
+}
+
+#slide-1 #taxi-4 {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(images/panel1_taxi_black.png);
+  background-size: 100%;
+  transform: translate(456px, 314px) rotate(-90deg);
+}
+
+#slide-1 #headline {
+  z-index: 3;
+  position: absolute;
+  left: 60px;
+  bottom: 50px;
+  font-size: 58px;
+  color: white;
+  text-transform: uppercase;
+}
+
+#slide-1 #headline-bg {
+  z-index: 2;
+  position: absolute;
+  left: 50px;
+  bottom: 48px;
+  width: 0;
+  height: 75px;
+  background-color: #f45c59;
+}
+
+#slide-2 {
   opacity: 0;
 }
 
-#slider-item-3 {
+#slide-2 #slide-2-bg {
+  width: 960px;
+  height: 375px;
+  background-image: url(images/panel2_bench_bg.jpg);
+  background-size: 100%;
+}
+
+#slide-3 {
   opacity: 0;
 }
 
-#slider-item-4 {
+#slide-4 {
   opacity: 0;
 }
 
