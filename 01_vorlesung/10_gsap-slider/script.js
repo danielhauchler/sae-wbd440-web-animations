@@ -12,18 +12,38 @@ const $slider = document.getElementById('slider'),
       $taxi4 = document.querySelector('#taxi-4'),
       $slide1Bg = document.querySelector('#slide-1-bg'),
       $headlineBg = document.querySelector('#headline-bg'),
+      
       // slider 2
       $slideTwo = document.getElementById('slide-2'),
+      $measureTape = document.getElementById('measure-tape'),
+      $scissor = document.getElementById('scissor'),
+      $scissor1 = document.getElementById('scissor-1'),
+      $scissor2 = document.getElementById('scissor-2'),
+      
       // slider 3
       $slideThree = document.getElementById('slide-3'),
+      $opener = document.querySelectorAll('.opener'),
+
       // slider 4
-      $slideFour = document.getElementById('slide-4');
+      $slideFour = document.getElementById('slide-4'),
+      $diamondFlora1 = document.getElementById('diamond-flora-1'),
+      $diamondFlora2 = document.getElementById('diamond-flora-2'),
+      $diamondFlora3 = document.getElementById('diamond-flora-3'),
+      $diamondFlora4 = document.getElementById('diamond-flora-4'),
+      $diamondFlora5 = document.getElementById('diamond-flora-5'),
+      $diamondFlora6 = document.getElementById('diamond-flora-6'),
+      $diamondFlora7 = document.getElementById('diamond-flora-7'),
+      $diamondFlora8 = document.getElementById('diamond-flora-8'),
+      $aliceProfile = document.getElementById('alice-profile'),
+      $text = document.getElementById('text'),
+      $textBg = document.getElementById('text-bg');
 
 // animation panel1
 const tlSlide1 = new gsap.timeline(),
       tlSlide2 = new gsap.timeline(),
       tlSlide3 = new gsap.timeline(),
-      tlSlide4 = new gsap.timeline();
+      tlSlide4 = new gsap.timeline(),
+      tlScissor = new gsap.timeline({repeat: -1});
 
 gsap.to($controls, .3, { opacity: 1 }, '-=.3')
 
@@ -31,6 +51,7 @@ tlSlide1.pause()
 tlSlide2.pause()
 tlSlide3.pause()
 tlSlide4.pause()
+tlScissor.pause()
 
 tlSlide1
   .to($slideOne, .3, {opacity: 1})
@@ -54,6 +75,23 @@ tlSlide1
   .to($taxi4, 2, {x: 496, y: 276, ease: Power1.easeIn}, 'taxi-start+=13')
   .to($taxi4, 6, {x: 819, y: -45, ease: Power0.easeNone}, 'taxi-start+=15')
 
+  tlSlide2.from($measureTape, .9, {x: -220, y: 300, rotate: 100, ease: Back.easeOut.config(1)})
+  .from($scissor, .9, {x: 200, y: 300, rotate: 50, ease: Back.easeOut.config(1), onComplete: function() {tlScissor.play()}}, '-=.7')
+
+  tlScissor.to($scissor2, .6, {rotate: -25, ease: Power1.easeInOut}, '+=1')
+          .to($scissor2, .6, {rotate: 0, ease: Power1.easeInOut}, '+=.1')
+          .to($scissor2, .6, {rotate: -25, ease: Power1.easeInOut}, '+=1')
+          .to($scissor2, .6, {rotate: 0, ease: Power1.easeInOut}, '+=.1')
+  
+  tlSlide4.to([$diamondFlora1, $diamondFlora2, $diamondFlora3, $diamondFlora4, $diamondFlora5, $diamondFlora6, $diamondFlora7, $diamondFlora8], .9, {scale: .9, ease: Back.easeOut.config(2)}, '+=.3' )
+          .from($aliceProfile, 1.2, {x: -900, ease: Back.easeOut.config(1)})
+          .to($textBg, .9, {width: 356, ease: Back.easeOut.config(1)})
+          .to($text, .9, {width: 300, ease: Power1.easeOut}, '-=.45')
+
+
+  .to($slider, .9, {opacity: 1}, '+=10')
+  
+
 
 function typed() {
   var typed = new Typed("#headline", {
@@ -65,6 +103,9 @@ function typed() {
     loop: false,
   });
 }
+
+
+
 var index = 1;
 
 if (index == 1) {
@@ -84,6 +125,7 @@ $next.addEventListener("click", function () {
     gsap.to($slideThree, .3, { opacity: 1 });
     tlSlide3.play(0);
     tlSlide2.pause(0);
+    tlScissor.pause(0);
     index = 3;
   } else if (index == 3) {
     gsap.to($slideThree, .3, { opacity: 0 });
@@ -124,36 +166,37 @@ $prev.addEventListener("click", function () {
     gsap.to($slideOne, .3, { opacity: 1 });
     tlSlide1.play(0);
     tlSlide2.pause(0);
+    tlScissor.pause(0);
     index = 1;
   }
 });
 
 // new AnimPanel(tlSlide1)
-new AnimPanel(tlSlide2)
+// new AnimPanel(tlSlide2)
 // new AnimPanel(tlSlide3)
-// new AnimPanel(tlSlide4)
+new AnimPanel(tlSlide4)
 
 
 // mouseOver & mouseOut
-function mouseOver() {}
-function mouseOut() {}
-$slideTwo.addEventListener("mouseover", mouseOver);
-$slideTwo.addEventListener("mouseout", mouseOut);
+// function mouseOver() {}
+// function mouseOut() {}
+// $slideTwo.addEventListener("mouseover", mouseOver);
+// $slideTwo.addEventListener("mouseout", mouseOut);
 
 // Panel 3
 function animOpenerItemMouseover() {
-  // gsap.to(this,.9, {y:0, ease: Power1.easeInOut})
-  // gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: -45, ease: Power3.easeInOut})
-  // gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: 45, ease: Power3.easeInOut, delay: .1})
-  // gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: 0, ease: Power3.easeInOut, delay: .3})
+  gsap.to(this, .9, {y: 0, ease: Power1.easeInOut})
+  gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: -15, ease: Power1.easeInOut})
+  gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: 25, ease: Power1.easeInOut, delay: .1})
+  gsap.to(this.getElementsByClassName('clothes'), .3, {rotate: 0, ease: Power1.easeInOut, delay: .3})
+  console.log(this)
 }
 function animOpenerItemMouseout() {
-  // gsap.to(this, .9, {y:-100, ease: Power1.easeInOut})
-  // console.log(this)
+  gsap.to(this, .9, {y:-100, ease: Power1.easeInOut})
+  console.log(this)
 }
-
-// $opener.forEach(element => {
-//   // element.addEventListener("mouseover", animOpenerItemMouseover)
-//   // element.addEventListener("mouseout", animOpenerItemMouseout)
-// });
+$opener.forEach(element => {
+  element.addEventListener("mouseover", animOpenerItemMouseover)
+  element.addEventListener("mouseout", animOpenerItemMouseout)
+});
 

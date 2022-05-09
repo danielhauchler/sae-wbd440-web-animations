@@ -97,12 +97,267 @@
   background-size: 100%;
 }
 
+#slide-2 #measure-tape {
+  z-index: 2;
+  position: absolute;
+  top: 260px;
+  left: 180px;
+  width: 45px;
+  height: 37px;
+  background-image: url(images/panel2_measure_tape.png);
+  background-size: 100%;
+}
+
+#scissor {
+  position: absolute;
+  top: 150px;
+  left: 750px;
+}
+#scissor-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 90px;
+  background-image: url(images/panel2_scissor_blk_blade1.png);
+  background-size: 100%;
+}
+#scissor-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 90px;
+  background-image: url(images/panel2_scissor_blk_blade2.png);
+  background-size: 100%;
+  transform-origin: 40px 45px;
+}
+
+
 #slide-3 {
   opacity: 0;
+  display: flex;
+  flex-direction: row;
 }
+
+/* panel 3 */
+#slider-item-3 {
+  display: flex;
+  flex-direction: row;
+}
+
+#slider-item-3-1,
+#slider-item-3-2,
+#slider-item-3-3,
+#slider-item-3-4 {
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 450px;
+  transform: translateY(-100px)
+}
+
+/* 
+#slider-item-3-1 {
+  
+}
+
+#slider-item-3-2 {
+  
+}
+
+#slider-item-3-3 {
+  
+}
+
+#slider-item-3-4 {
+  
+} */
+
+#slider-item-3-1-top,
+#slider-item-3-2-top,
+#slider-item-3-3-top,
+#slider-item-3-4-top {
+  height: 100px;
+  width: 100%;
+  background-image: url("images/panel3_infoBox.png");
+  background-size: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#slider-item-3-1-top .headline,
+#slider-item-3-2-top .headline,
+#slider-item-3-3-top .headline,
+#slider-item-3-4-top .headline {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+
+#slider-item-3-1-top .text,
+#slider-item-3-2-top .text,
+#slider-item-3-3-top .text,
+#slider-item-3-4-top .text {
+  font-size: 12px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.5;
+}
+
+#slider-item-3-1-bottom,
+#slider-item-3-2-bottom,
+#slider-item-3-3-bottom,
+#slider-item-3-4-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  width: 100%;
+  background: rgb(231,122,115);
+  background: linear-gradient(180deg, rgba(231,122,115,1) 0%, rgba(181,56,54,1) 100%);
+}
+
+#slider-item-3-1-bottom .clothes,
+#slider-item-3-2-bottom .clothes,
+#slider-item-3-3-bottom .clothes,
+#slider-item-3-4-bottom .clothes {
+  width: 190px;
+  height: 243px;
+  background-size: 100%;
+  background-image: url("images/panel3_shirt1.png");
+}
+
+#slider-item-3-1-bottom #shirt1 {
+  background-image: url("images/panel3_shirt1.png");
+}
+
+#slider-item-3-2-bottom #shirt2 {
+  background-image: url("images/panel3_shirt2.png");
+}
+#slider-item-3-3-bottom #shirt3 {
+  background-image: url("images/panel3_shirt3.png");
+}
+#slider-item-3-4-bottom #shirt4 {
+  background-image: url("images/panel3_shirt4.png");
+}
+
+#slider-item-3 #bg-panel-3 {
+  width: 100%;
+  height: 100%;
+  background-color:red;
+}
+
 
 #slide-4 {
   opacity: 0;
+}
+
+#slide-4 #slide-4-bg {
+  width: 960px;
+  height: 375px;
+  background-image: url(images/panel4_clothesRack.jpg);
+  background-size: 100%;
+}
+
+#slide-4 #diamond-flora-1,
+#slide-4 #diamond-flora-2,
+#slide-4 #diamond-flora-3,
+#slide-4 #diamond-flora-4,
+#slide-4 #diamond-flora-5,
+#slide-4 #diamond-flora-6,
+#slide-4 #diamond-flora-7,
+#slide-4 #diamond-flora-8 {
+  z-index: 2;
+  width: 500px;
+  height: 500px;
+  background-image: url(images/panel4_diamond_flora.svg);
+  background-size: 100%;
+}
+
+#slide-4 #diamond-flora-1 {
+  position: absolute;
+  top: -250px;
+  left: -250px;
+}
+
+#slide-4 #diamond-flora-2 {
+  position: absolute;
+  top: -250px;
+  left: 250px;
+}
+
+#slide-4 #diamond-flora-3 {
+  position: absolute;
+  top: -250px;
+  left: 750px;
+}
+
+#slide-4 #diamond-flora-4 {
+  position: absolute;
+  top: 250px;
+  left: -250px;
+}
+
+#slide-4 #diamond-flora-5 {
+  position: absolute;
+  top: 250px;
+  left: 250px;
+}
+
+#slide-4 #diamond-flora-6 {
+  position: absolute;
+  top: 250px;
+  left: 750px;
+}
+
+#slide-4 #diamond-flora-7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#slide-4 #diamond-flora-8 {
+  position: absolute;
+  top: 0;
+  left: 500px;
+}
+
+#alice-profile {
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  right: 100px; 
+  width: 600px;
+  height: 373px;
+  background-image: url(images/panel4_alice.png);
+  background-size: 100%; 
+}
+
+#slide-4 #text {
+  z-index: 5;
+  position: absolute;
+  width: 0;
+  overflow: hidden;
+  top: 27px;
+  left: 129px;
+  font-size: 118px;
+  color: #f45c59;
+}
+
+#slide-4 #text-bg {
+  z-index: 4;
+  position: absolute;
+  overflow: hidden;
+  top: 81px;
+  left: 95px;
+  width: 0;
+  height: 77px;
+  background-image: url(images/panel4_header_box.png);
+  background-size: 356px 77px;
 }
 
 #controls {

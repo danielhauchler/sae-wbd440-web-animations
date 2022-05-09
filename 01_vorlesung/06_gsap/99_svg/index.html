@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #kreis-1 {
+            transform-origin: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #9e4895;
+            }
+          </style>
+        </defs>
+        <rect x="100" y="100" width="300" height="300"/>
+        <path d="M118.92,51S322.06,103.75,250,55.83,351.56,72.5,351.56,72.5,418.22,93,372.39,42.64,220.31,12.43,166.14,23.54,118.92,51,118.92,51Z"/>
+        <ellipse id="kreis-1" class="cls-1" cx="232.29" cy="270.14" rx="223.79" ry="129.86"/>
+    </svg>     -->
+
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447.57 259.72">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #9e4895;
+            }
+          </style>
+        </defs>
+        <ellipse id="kreis-1" class="cls-1" cx="223.79" cy="129.86" rx="223.79" ry="129.86"/>
+      </svg>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+    <script>
+        gsap.to(document.getElementById('kreis-1'), 5, {fill: '#48979b', rotate: 360})
+    </script>
+</body>
+</html>
