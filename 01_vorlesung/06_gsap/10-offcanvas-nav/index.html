@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      height: 300vh;
+    }
+    #nav-toggler {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 2;
+      cursor: pointer;
+    }
+    #nav-toggler span {
+      height: 2px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      background-color: #000;
+      transition: width .3s;
+    }
+    #nav-toggler #nav-toggler-1 {
+      width: 25px;
+    }
+    #nav-toggler #nav-toggler-2 {
+      width: 30px;
+    }
+    #nav-toggler #nav-toggler-3 {
+      width: 20px;
+    }
+    #nav-toggler:hover span {
+      width: 30px !important;
+    }
+    nav {
+      z-index: 1;
+      position: fixed;
+      top: 0;
+      right: -200px;
+      background-color: #fff;
+      padding: 40px 20px;
+      width: 200px;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .nav-item {
+      opacity: 0;
+      list-style: none;
+      transform: translateX(60px)
+    }
+
+    ul li a {
+      padding: 5px 0;
+      display: inline-block;
+      color: #000;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="nav-toggler">
+    <span id="nav-toggler-1"></span>
+    <span id="nav-toggler-2"></span>
+    <span id="nav-toggler-3"></span>
+  </div>
+  <nav>
+    <ul class="">
+      <li class="nav-item"><a href="#">nav-item</a></li>
+      <li class="nav-item"><a href="#">nav-item</a></li>
+      <li class="nav-item"><a href="#">nav-item</a></li>
+      <li class="nav-item"><a href="#">nav-item</a></li>
+      <li class="nav-item"><a href="#">nav-item</a></li>
+    </ul>
+  </nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script>
+
+    const nav = document.querySelector('nav')
+    const navToggler = document.querySelector('#nav-toggler')
+    const navToggler1 = document.querySelector('#nav-toggler-1')
+    const navToggler2 = document.querySelector('#nav-toggler-2')
+    const navToggler3 = document.querySelector('#nav-toggler-3')
+    const navItems = document.querySelectorAll('.nav-item')
+
+    navIndex = 0;
+
+    var navTl = new gsap.timeline();
+
+    navTl.pause(0)
+
+    navTl.set([navToggler1, navToggler2, navToggler3], {width: '30px'})
+        .to(navToggler1, .3, {y:8, ease: Power2.easeInOut})
+        .to(navToggler3, .3, {y:-8, ease: Power2.easeInOut}, '-=.3')
+        .set(navToggler2, {opacity: 0, ease: Power2.easeInOut})
+        .to(navToggler1, .3, {rotate: 45, ease: Power2.easeInOut})
+        .to(navToggler3, .3, {rotate: -45, ease: Power2.easeInOut}, '-=.3')
+        .to(nav, .6, {right: '0', ease: Power2.easeInOut}, '-=.6')
+        .staggerTo(navItems, .3, {x: 0, opacity: 1}, 0.1);
+
+
+
+    navToggler.addEventListener("click", function() {
+      if (navIndex == 0) {
+        console.log('open')
+        navIndex = 1;
+        navTl.play(0)
+      } else {
+        console.log('close')
+        navIndex = 0;
+        close()
+      }
+    })
+
+    function close() {
+      navTl.reverse()
+    }
+
+    
+    // tl.to($nav, 2, {x: -500})
+
+  </script>
+</body>
+</html>
